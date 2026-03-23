@@ -1,0 +1,516 @@
+/*
+  UNIFY DC - SCC France TRUE Typographical Clone Design
+*/
+
+:root {
+  --blue-primary: #1a56db; 
+  --text-dark: #000000;
+  --text-gray: #4a4a4a;
+  --bg-color: #ffffff;
+  --bg-gray: #f2f4f7; /* Slightly darker light-alt for alternating rows */
+  --bg-dark: #0c111d;
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --border-light: #eaeaea;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  line-height: 1.5;
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/* Header Styles */
+#header {
+  height: 90px;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.nav-links a {
+  font-size: 15px;
+  color: #111;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--blue-primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--blue-primary);
+  transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-badge-premium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #111;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 1px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.3s ease;
+}
+
+.nav-badge-premium:hover {
+  background-color: var(--blue-primary);
+  transform: scale(1.05);
+  color: #fff;
+}
+
+.search-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #111;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.search-icon svg:hover {
+  opacity: 0.6;
+}
+
+/* Floating Cookie Button */
+.cookie-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 50px;
+  height: 50px;
+  background-color: #E6E6E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.2s;
+}
+
+.cookie-btn:hover {
+  background-color: #D4D4D4;
+}
+
+.cookie-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 90px;
+  height: calc(100vh - 90px);
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(10, 16, 31, 0.5), rgba(0, 0, 0, 0.8));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 0 20px;
+  max-width: 1200px;
+}
+
+.hero-title-text {
+  font-family: inherit;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  color: #ffffff;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  text-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+}
+
+.hero-word {
+  display: inline-block;
+}
+
+.hero-subtext {
+  font-size: clamp(1.2rem, 2vw, 24px);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-btn {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.primary-btn {
+  background-color: #00E5FF;
+  color: #0c111d;
+}
+
+.primary-btn:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.secondary-btn:hover {
+  background-color: #fff;
+  color: #111;
+  transform: translateY(-2px);
+}
+
+/* Typography Defaults & Tools */
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.bg-light-alt {
+  background-color: var(--bg-gray);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-tag-blue {
+  color: var(--blue-primary);
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 10px; /* Reduced to bring huge text closer like SCC */
+  font-weight: 500;
+  display: block;
+}
+
+.huge-text {
+  font-size: 68px; /* Massive like SCC */
+  line-height: 1.05;
+  color: var(--text-dark);
+  font-weight: 400;
+  margin-bottom: 30px;
+  letter-spacing: -1.5px;
+}
+
+.med-text {
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--text-dark);
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.large-ugap {
+  font-weight: 500;
+}
+
+.desc-text {
+  font-size: 22px; /* Large readable desc like SCC */
+  color: #111;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.mb-small { margin-bottom: 20px; }
+.mb-medium { margin-bottom: 40px; }
+.mb-large { margin-bottom: 60px; }
+.mt-small { margin-top: 20px; }
+
+/* Grid Layouts - SCC Style */
+.section-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.align-center-vert {
+  align-self: center;
+}
+
+.pr-lg { padding-right: 60px; }
+.pl-lg { padding-left: 60px; }
+
+.image-half img {
+  width: 100%;
+  max-height: 750px;
+  object-fit: cover;
+  display: block;
+  /* Removed border radius and shadow to be purely editorial edge-to-edge frame */
+}
+
+.relative {
+  position: relative;
+}
+
+/* Image internal overlay */
+.ambition-overlay {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  color: #fff;
+  z-index: 2;
+}
+
+.ambition-text {
+  font-size: 28px;
+  margin-top: 10px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+}
+
+/* MISSION VISION block */
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 40px;
+}
+.mv-block h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--blue-primary);
+}
+.mv-block p {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* MINIMAL TYPOGRAPHIC LIST (The true SCC style) */
+.minimal-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 40px;
+  margin-top: 40px;
+}
+
+.ml-item h5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.ml-item p {
+  font-size: 16px;
+  color: #4a4a4a;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Pour Qui */
+.dark-banner {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 120px 0;
+}
+
+.text-white { color: #fff; }
+.text-white-70 { color: rgba(255,255,255,0.7); }
+
+.badges-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(255,255,255,0.1);
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-size: 18px;
+  font-weight: 400;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Atouts & Valeurs lists */
+.clean-bullet-list {
+  list-style-type: none;
+}
+
+.clean-bullet-list li {
+  font-size: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  font-weight: 300;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 15px;
+}
+.clean-bullet-list li:last-child {
+  border-bottom: none;
+}
+
+/* Footer & Contact */
+.bg-dark { background-color: var(--bg-dark); }
+.cta-subtitle { font-size: 24px; font-weight: 300; margin-bottom: 30px; color: #aaa; }
+.cta-features { font-size: 18px; color: #fff; opacity: 0.8; }
+.cta-features span { display: inline-block; margin: 0 10px; }
+
+.contact-card {
+  background: transparent;
+  color: #fff;
+}
+
+.contact-card h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+.contact-details strong {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+/* Contact Form Interactive Styles */
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: #cbd5e1 !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--blue-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15) !important;
+}
+
+.footer-bottom {
+  margin-top: 80px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 30px 0;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .huge-text { font-size: 52px; }
+  .section-split { gap: 40px; }
+  .pr-lg, .pl-lg { padding: 0; }
+}
+
+@media (max-width: 992px) {
+  .nav-links { display: none; }
+  .mv-grid, .minimal-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .section-split { grid-template-columns: 1fr; gap: 40px; }
+  .container { padding: 0 24px; }
+  .huge-text { font-size: 42px; }
+}
